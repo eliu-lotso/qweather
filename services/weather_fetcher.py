@@ -6,7 +6,8 @@ from services.jwt_auth import generate_jwt_token
 API_HOST = os.getenv("QWEATHER_API_HOST")  # 添加到 .env 文件中
 CITY_IDS = {
     "台北市": "101340101",
-    "新北市": "101191107"
+    "新北市": "101191107",
+    "桃园市": "101340102"
 }
 
 def fetch(endpoint: str, params: dict):
@@ -32,11 +33,11 @@ def fetch_weather_all():
     result = {}
 
     for city, loc_id in CITY_IDS.items():
-        now = fetch("weather/now", {"location": loc_id})
+        hourly = fetch("weather/24h", {"location": loc_id})
         week = fetch("weather/7d", {"location": loc_id})
         category, advice = fetch_indices(city, loc_id)
         result[city] = {
-            "now": now.get("now", {}),
+            "hourly": hourly.get("hourly", {}),
             "weekly": week.get("daily", []),
             "clothing": {
                 "category": category,
