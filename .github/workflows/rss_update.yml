@@ -29,10 +29,13 @@ jobs:
     
     - name: Run weather script
       env:
+        QWEATHER_CREDENTIAL_ID: ${{ secrets.QWEATHER_CREDENTIAL_ID }}
+        QWEATHER_PROJECT_ID: ${{ secrets.QWEATHER_PROJECT_ID }}
+        QWEATHER_PRIVATE_KEY_PATH: ./ed25519-private.pem
         QWEATHER_API_HOST: ${{ secrets.QWEATHER_API_HOST }}
-        QWEATHER_API_PRIVATE_KEY: ${{ secrets.QWEATHER_API_PRIVATE_KEY }}
-        QWEATHER_API_PUBLIC_KEY: ${{ secrets.QWEATHER_API_PUBLIC_KEY }}
+        RSS_FEED_LINK: ${{ secrets.RSS_FEED_LINK }}
         BARK_KEY: ${{ secrets.BARK_KEY }}
+        
       run: python main.py
 
     - name: Commit and push RSS
@@ -42,3 +45,5 @@ jobs:
         git add docs/weather.xml
         git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git push
+      env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
