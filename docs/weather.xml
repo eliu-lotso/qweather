@@ -1,24 +1,25 @@
 <?xml version="1.0" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>天气快讯</title>
     <link>https://eliu-lotso.github.io/qweather/weather.xml</link>
     <description>台北新北天气、大雨城市与预警</description>
+    <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>今日天气（2025-06-10 23:49）</title>
-      <pubDate>Tue, 10 Jun 2025 23:49:32 +0800</pubDate>
-      <guid>weather-Tue 10 Jun 2025</guid>
-      <description><![CDATA[【台北市】多雲，25 ~ 34℃
-【新北市】雾，21 ~ 25℃
+      <title>今日天气（2025-06-11 00:14）</title>
+      <pubDate>Tue, 10 Jun 2025 16:14:50 GMT</pubDate>
+      <guid>weather-20250610T161450</guid>
+      <description><![CDATA[【台北市】多雲，25 ~ 30℃
+【新北市】雾，20 ~ 26℃
 
 📅 台北市 一周天气简要：
-- 2025-06-10: 晴 ~ 多雲
 - 2025-06-11: 晴 ~ 多雲
 - 2025-06-12: 小雨 ~ 小雨
+- 2025-06-13: 小雨 ~ 多雲
 📅 新北市 一周天气简要：
-- 2025-06-10: 小雨 ~ 阴
 - 2025-06-11: 阴 ~ 中雨
 - 2025-06-12: 小雨 ~ 阴
+- 2025-06-13: 大雨 ~ 阴
 
 👕 穿衣建议：
 - 台北市：热，天气热，建议着短裙、短裤、短薄外套、T恤等夏季服装。
