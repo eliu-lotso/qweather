@@ -22,11 +22,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    
-    - name: Write QWeather Private Key
-      run: |
-          echo "${{ secrets.QWEATHER_PRIVATE_KEY_PEM }}" > ed25519-private.pem
-    
+   
+    - name: 生成私钥文件（base64 解码）
+      run: echo "${{ secrets.QWEATHER_PRIVATE_KEY_B64 }}" | base64 -d > ed25519-private.pem
+
+
     - name: Run weather script
       env:
         QWEATHER_CREDENTIAL_ID: ${{ secrets.QWEATHER_CREDENTIAL_ID }}
