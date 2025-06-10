@@ -27,6 +27,24 @@ jobs:
       run: echo "${{ secrets.QWEATHER_PRIVATE_KEY_B64 }}" | base64 -d > ed25519-private.pem
 
 
+
+    
+    - name: 生成并验证 PEM 私钥文件
+      run: |
+            echo "${{ secrets.QWEATHER_PRIVATE_KEY_B64 }}" | base64 -d > ed25519-private.pem
+
+            echo "🔍 文件类型检查："
+            file ed25519-private.pem
+
+            echo "🔍 PEM 文件前几行 hex 内容："
+            xxd ed25519-private.pem | head -n 5
+
+            echo "🔍 检查是否为 PEM 格式"
+            if ! grep -q "BEGIN PRIVATE KEY" ed25519-private.pem; then
+                echo "❌ PEM 文件格式不正确，缺少 BEGIN PRIVATE KEY"
+                exit 1
+            fi
+
     - name: Run weather script
       env:
         QWEATHER_CREDENTIAL_ID: ${{ secrets.QWEATHER_CREDENTIAL_ID }}
@@ -35,6 +53,7 @@ jobs:
         QWEATHER_API_HOST: ${{ secrets.QWEATHER_API_HOST }}
         RSS_FEED_LINK: ${{ secrets.RSS_FEED_LINK }}
         BARK_KEY: ${{ secrets.BARK_KEY }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
         
       run: python main.py
 
@@ -45,5 +64,14 @@ jobs:
         git add docs/weather.xml
         git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git push
-      env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    - name: Commit and push RSS
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+        git add docs/weather.xml
+        git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+        git push
+
+          
