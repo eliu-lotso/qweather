@@ -1,14 +1,13 @@
 # QWeather RSS 推送工具
 
-📡 基于 [和风天气 API (QWeather)](https://dev.qweather.com/) 构建的天气自动汇总脚本，支持台北、新北天气查询，天气预警和穿衣指数，并生成 RSS 输出（适用于 GitHub Pages + Slack 通知）。
+📡 基于 [和风天气 API (QWeather)](https://dev.qweather.com/) 构建的天气自动汇总脚本，支持台北、新北天气查询，天气预警并生成 RSS 输出
 
 ---
 
 ## 🔧 功能
 
-- ✅ 查询台北、新北当天实况与未来一周天气
+- ✅ 查询台北、新北、桃园当天实况与未来一周天气
 - ✅ 获取台湾天气预警（暴雨、台风等）
-- ✅ 提取穿衣指数建议
 - ✅ 自动生成 RSS XML 文件，可用于 GitHub Pages 发布
 - ✅ 使用 JWT 身份认证，安全访问和风 API
 
