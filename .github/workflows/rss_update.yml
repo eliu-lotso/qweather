@@ -3,7 +3,9 @@ name: Daily Weather RSS Update
 on:
   schedule:
     - cron: '0 23 * * *'  # 每天 UTC 时间 23:00（台北 07:00）
-  workflow_dispatch:       # 允许手动触发
+  workflow_dispatch:
+permissions:
+  contents: write       # 允许手动触发
 
 jobs:
   build:
@@ -23,23 +25,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
    
-    - name: 生成私钥文件（base64 解码）
-      run: echo "${{ secrets.QWEATHER_PRIVATE_KEY_B64 }}" | base64 -d > ed25519-private.pem
-
-
-
     
     - name: 生成并验证 PEM 私钥文件
       run: |
             echo "${{ secrets.QWEATHER_PRIVATE_KEY_B64 }}" | base64 -d > ed25519-private.pem
 
-            echo "🔍 文件类型检查："
-            file ed25519-private.pem
-
-            echo "🔍 PEM 文件前几行 hex 内容："
-            xxd ed25519-private.pem | head -n 5
-
-            echo "🔍 检查是否为 PEM 格式"
             if ! grep -q "BEGIN PRIVATE KEY" ed25519-private.pem; then
                 echo "❌ PEM 文件格式不正确，缺少 BEGIN PRIVATE KEY"
                 exit 1
@@ -60,17 +50,13 @@ jobs:
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git add docs/weather.xml
-        git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-        git push
-
-    - name: Commit and push RSS
-      run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
         git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
         git add docs/weather.xml
         git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git push
+
+    - name: Clean up PEM file
+      if: always()
+      run: rm -f ed25519-private.pem
 
           
