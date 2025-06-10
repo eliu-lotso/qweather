@@ -212,3 +212,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 ed25519-private.pem.b64
+.github/workflows/rss_update.yml
+.gitignore

@@ -53,8 +53,7 @@ jobs:
         QWEATHER_API_HOST: ${{ secrets.QWEATHER_API_HOST }}
         RSS_FEED_LINK: ${{ secrets.RSS_FEED_LINK }}
         BARK_KEY: ${{ secrets.BARK_KEY }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        
+
       run: python main.py
 
     - name: Commit and push RSS
@@ -69,7 +68,7 @@ jobs:
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
         git add docs/weather.xml
         git commit -m "🤖 更新天气 RSS at $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git push
