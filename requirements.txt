@@ -1,0 +1,6 @@
+requests
+python-dotenv
+PyJWT
+cryptography
+# 如果 Python < 3.9 需要：
+backports.zoneinfo; python_version < "3.9"
