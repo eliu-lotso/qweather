@@ -1,5 +1,6 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from services.doubao_ai import call_doubao_ai
 
 def build_summary(data):
     lines = []
@@ -34,26 +35,34 @@ def build_summary(data):
 
         text1, range1 = summarize_block(block1)
         text2, range2 = summarize_block(block2)
-        full_range = f"{min(temp_all)} ~ {max(temp_all)}℃" if temp_all else "?"
+        #full_range = f"{min(temp_all)} ~ {max(temp_all)}℃" if temp_all else "?"
         lines.append(f"【{city}】今日天气简要：09:00~15:00 {text1}（{range1}），16:00~22:00 {text2}（{range2})")
-        lines.append(f"🌡️ 全日气温范围：{full_range}")
+        #lines.append(f"🌡️ 全日气温范围：{full_range}")
         lines.append("")
 
     for city, content in data.items():
         if city == "warnings":
             continue
         lines.append(f"📅 {city} 一周天气简要：")
-        for day in content["weekly"][:3]:
+        for day in content["weekly"][:2]:
             lines.append(f"- {day['fxDate']}: {day['textDay']} ~ {day['textNight']}")
         lines.append("")
 
     # ✅ 天气预警
     alerts = data.get("warnings", [])
     if alerts:
-        lines.append("⚠️ 当前预警：")
+        alert_texts = []
         for alert in alerts:
             city = alert.get("city", "未知地区")
-            lines.append(f"- [{city}] {alert['title']}: {alert['text']}")
+            alert_texts.append(f"[{city}] {alert['title']}: {alert['text']}")
+        all_alerts_text = "\n".join(alert_texts)
+        # 调用豆包AI进行摘要
+        try:
+            ai_summary = call_doubao_ai(all_alerts_text)
+        except Exception as e:
+            ai_summary = "AI摘要失败，原始预警如下：\n" + all_alerts_text
+        lines.append("⚠️ 当前预警摘要：")
+        lines.append(ai_summary)
     else:
         lines.append("✅ 当前无天气预警")
 
