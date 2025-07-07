@@ -43,6 +43,8 @@ jobs:
         QWEATHER_API_HOST: ${{ secrets.QWEATHER_API_HOST }}
         RSS_FEED_LINK: ${{ secrets.RSS_FEED_LINK }}
         BARK_KEY: ${{ secrets.BARK_KEY }}
+        CWA_API_KEY: ${{ secrets.CWA_API_KEY }}
+        DOUBAO_API_KEY: ${{ secrets.DOUBAO_API_KEY }}
 
       run: python main.py
 
