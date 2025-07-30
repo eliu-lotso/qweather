@@ -58,7 +58,9 @@ def write_rss(title: str, description: str, forecast_hours: int = 15):
     item.appendChild(guid)
 
     desc = doc.createElement("description")
-    cdata = doc.createCDATASection(description)
+    # 将换行符转换为HTML <br> 标签，确保在RSS阅读器中正确换行
+    html_description = description.replace('\n', '<br>')
+    cdata = doc.createCDATASection(html_description)
     desc.appendChild(cdata)
     item.appendChild(desc)
 
