@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台湾天气快讯</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        .content {
+            padding: 30px;
+        }
+        .weather-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .weather-section h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.3em;
+        }
+        .weather-section p {
+            margin: 8px 0;
+            white-space: pre-line;
+        }
+        .alert-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .alert-section h3 {
+            margin: 0 0 15px 0;
+            color: #856404;
+            font-size: 1.3em;
+        }
+        .alert-section p {
+            margin: 8px 0;
+            white-space: pre-line;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        .rss-link {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        .rss-link:hover {
+            background: #e55a2b;
+        }
+        .update-time {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ 台湾天气快讯</h1>
+            <p>台北、新北、桃园实时天气与预警信息</p>
+            <div class="update-time" id="updateTime"></div>
+        </div>
+        
+        <div class="content">
+            <div id="loading" class="loading">
+                <p>正在加载天气信息...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                <p>加载天气信息失败，请稍后重试</p>
+            </div>
+            
+            <div id="weatherContent" style="display: none;">
+                <!-- 天气内容将在这里动态加载 -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>数据来源：中央气象署 | 更新时间：<span id="lastUpdate"></span></p>
+            <a href="weather.xml" class="rss-link">📡 RSS订阅</a>
+            <a href="https://github.com/eliu-lotso/qweather" class="rss-link">📂 项目源码</a>
+        </div>
+    </div>
+
+    <script>
+        async function loadWeatherData() {
+            try {
+                const response = await fetch('weather.xml');
+                const xmlText = await response.text();
+                
+                // 解析XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                
+                // 获取描述内容
+                const description = xmlDoc.querySelector('description').textContent;
+                
+                // 解析内容并格式化显示
+                const content = parseWeatherContent(description);
+                document.getElementById('weatherContent').innerHTML = content;
+                document.getElementById('weatherContent').style.display = 'block';
+                
+                // 更新时间
+                const pubDate = xmlDoc.querySelector('pubDate').textContent;
+                document.getElementById('lastUpdate').textContent = new Date(pubDate).toLocaleString('zh-TW');
+                document.getElementById('updateTime').textContent = `最后更新：${new Date(pubDate).toLocaleString('zh-TW')}`;
+                
+                document.getElementById('loading').style.display = 'none';
+                
+            } catch (error) {
+                console.error('加载天气数据失败:', error);
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        function parseWeatherContent(description) {
+            const lines = description.split('\n');
+            let html = '';
+            let currentSection = '';
+            
+            for (let line of lines) {
+                line = line.trim();
+                if (!line) continue;
+                
+                if (line.startsWith('【') && line.includes('】今日天气：')) {
+                    // 城市天气信息
+                    if (currentSection !== 'weather') {
+                        if (currentSection) html += '</div>';
+                        html += '<div class="weather-section">';
+                        html += '<h3>🌤️ 今日天气</h3>';
+                        currentSection = 'weather';
+                    }
+                    html += `<p><strong>${line}</strong></p>`;
+                } else if (line.startsWith('🌤️')) {
+                    // 未来天气
+                    if (currentSection !== 'future') {
+                        if (currentSection) html += '</div>';
+                        html += '<div class="weather-section">';
+                        html += '<h3>📅 未来天气</h3>';
+                        currentSection = 'future';
+                    }
+                    html += `<p>${line}</p>`;
+                } else if (line.startsWith('⚠️')) {
+                    // 预警信息
+                    if (currentSection !== 'alert') {
+                        if (currentSection) html += '</div>';
+                        html += '<div class="alert-section">';
+                        html += '<h3>⚠️ 天气预警</h3>';
+                        currentSection = 'alert';
+                    }
+                    html += `<p><strong>${line}</strong></p>`;
+                } else if (line.startsWith('- ')) {
+                    // 预警详情
+                    html += `<p>${line}</p>`;
+                } else if (line.startsWith('总体：')) {
+                    // 总体总结
+                    html += `<p><strong>📋 总体：</strong>${line.substring(3)}</p>`;
+                } else {
+                    // 其他内容
+                    html += `<p>${line}</p>`;
+                }
+            }
+            
+            if (currentSection) {
+                html += '</div>';
+            }
+            
+            return html;
+        }
+        
+        // 页面加载时获取天气数据
+        document.addEventListener('DOMContentLoaded', loadWeatherData);
+        
+        // 每30分钟自动刷新一次
+        setInterval(loadWeatherData, 30 * 60 * 1000);
+    </script>
+</body>
+</html> 
