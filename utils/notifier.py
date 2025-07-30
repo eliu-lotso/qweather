@@ -3,6 +3,7 @@ import requests
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
 
+# 确保环境变量已加载
 load_dotenv()
 BARK_KEY = os.getenv("BARK_KEY")
 

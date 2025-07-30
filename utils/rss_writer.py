@@ -3,6 +3,7 @@ from datetime import datetime
 from xml.dom import minidom
 from dotenv import load_dotenv
 
+# 确保环境变量已加载
 load_dotenv()
 
 RSS_PATH = os.path.join("docs", "weather.xml")

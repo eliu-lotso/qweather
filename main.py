@@ -1,4 +1,4 @@
-from services.weather_fetcher import fetch_weather_all
+from services.cwa_weather_fetcher import fetch_weather_all
 from services.summary_builder import build_summary
 from utils.rss_writer import write_rss
 from utils.notifier import send_bark

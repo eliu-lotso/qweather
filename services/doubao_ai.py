@@ -32,12 +32,4 @@ def call_doubao_ai(prompt, model="doubao-seed-1-6-flash-250615", temperature=0.2
     except Exception as e:
         raise
 
-# 示例用法
-if __name__ == "__main__":
-    test_alerts = """
-    [台北市] 大雨特报: 台北市未来12小时有大雨，请注意防范。
-    [新北市] 大雨特报: 新北市未来12小时有大雨，请注意防范。
-    [桃园市] 强风提醒: 桃园市阵风较强，外出注意安全。
-    """
-    summary = call_doubao_ai(test_alerts)
-    print("AI摘要：", summary)
+# 模块功能：调用豆包AI进行天气预警摘要
