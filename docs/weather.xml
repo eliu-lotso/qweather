@@ -6,10 +6,10 @@
     <description>台北新北天气、大雨城市与预警</description>
     <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>天气预报（2025-09-29 07:20）（未来 15 小时预报）</title>
-      <pubDate>Sun, 28 Sep 2025 23:20:43 GMT</pubDate>
-      <guid isPermaLink="false">weather-20250928T232043</guid>
-      <description><![CDATA[【台北市】今日天气：晴時多雲，27 ~ 36℃<br><br>【新北市】今日天气：晴時多雲，27 ~ 35℃<br><br>【桃园市】今日天气：多雲午後短暫雷陣雨，27 ~ 35℃<br><br>🌤️ 台北市未来两日：晴间短阵雨后多云，27~36℃，防短时降雨<br><br>🌤️ 新北市未来两日：晴间多云有雷阵，27至35℃防雨<br><br>🌤️ 桃园市未来两日：多云为主，27~35℃，注意短时降雨<br><br>⚠️ 当前预警摘要（09月28日 23:20）：<br>- 台风：台风「NEOGURI」「BUALOI」09月29日02:00信息显示距台湾较远，影响较小<br>- 市级：雷阵雨提醒涵盖台北市、新北市、嘉义市（未来12 - 24小时晴午后短暫雷陣雨）；桃园市有多云午后短暫雷陣雨；高雄市有多云短暫陣雨<br>- 其他：无其他区域特殊预警相关内容]]></description>
+      <title>天气预报（2025-09-30 07:20）（未来 15 小时预报）</title>
+      <pubDate>Mon, 29 Sep 2025 23:20:55 GMT</pubDate>
+      <guid isPermaLink="false">weather-20250929T232055</guid>
+      <description><![CDATA[【台北市】今日天气：晴時多雲，27 ~ 36℃<br><br>【新北市】今日天气：晴時多雲，27 ~ 36℃<br><br>【桃园市】今日天气：晴時多雲，26 ~ 34℃<br><br>🌤️ 台北市未来两日：晴时多云，27~36℃，降雨机率较低需留意<br><br>🌤️ 新北市未来两日：晴多云交替，27至36℃，防短时降雨<br><br>🌤️ 桃园市未来两日：晴时多云为主，26~34℃，降雨机率较低<br><br>⚠️ 当前预警摘要（09月29日 23:20）：<br>- 台风：台风「BUALOI」09月29日20:00距台湾较远，影响较小<br>- 市级：无<br>- 其他：无<br>- 总体：09月29日20时，台风「BUALOI」距离台湾较远，影响较小，无市级及其他区域特殊预警信息，整体情况简明。]]></description>
     </item>
   </channel>
 </rss>
