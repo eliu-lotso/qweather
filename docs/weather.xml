@@ -6,10 +6,10 @@
     <description>台北新北天气、大雨城市与预警</description>
     <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>天气预报（2025-12-19 07:24）（未来 15 小时预报）</title>
-      <pubDate>Thu, 18 Dec 2025 23:24:40 GMT</pubDate>
-      <guid isPermaLink="false">weather-20251218T232440</guid>
-      <description><![CDATA[【台北市】今日天气：陰短暫陣雨，19 ~ 24℃<br><br>【新北市】今日天气：陰短暫陣雨，18 ~ 24℃<br><br>【桃园市】今日天气：陰時多雲短暫陣雨，18 ~ 23℃<br><br>🌤️ 台北市未来两日：多云时阴短阵雨，19~24℃，降雨概率低需关注<br><br>🌤️ 新北市未来两日：多雲陰有短陣雨，18~23℃，降雨概率低备雨<br><br>🌤️ 桃园市未来两日：多雲陰天伴陣雨，18至22℃防短时雨<br><br>⚠️ 当前预警摘要（12月18日 23:24）：<br>- 市级：阵雨提醒覆盖台北市、新北市、桃园市、台中市、台南市、高雄市、基隆市、新竹市、嘉义市，未来12 - 24小时内预报有多云时阴或阴时多云短暂阵雨，请注意防范<br>总体：台湾多市未来12 - 24小时有短暂阵雨，相关地区需留意防范，预警覆盖多座城市，关注短时降雨情况]]></description>
+      <title>天气预报（2025-12-20 07:24）（未来 15 小时预报）</title>
+      <pubDate>Fri, 19 Dec 2025 23:24:22 GMT</pubDate>
+      <guid isPermaLink="false">weather-20251219T232422</guid>
+      <description><![CDATA[【台北市】今日天气：多雲時陰，19 ~ 25℃<br><br>【新北市】今日天气：多雲時陰，19 ~ 24℃<br><br>【桃园市】今日天气：多雲時陰，18 ~ 23℃<br><br>🌤️ 台北市未来两日：阴短时雨，19~25℃，注意防范降雨<br><br>🌤️ 新北市未来两日：阴有短暂雨，19~24℃，注意降雨情况<br><br>🌤️ 桃园市未来两日：阴为主，18~19℃，明晚有短时雨注意<br><br>⚠️ 当前预警摘要（12月19日 23:24）：<br>请您提供具体的天气预警信息内容，以便我按照要求进行极简摘要合并。]]></description>
     </item>
   </channel>
 </rss>
