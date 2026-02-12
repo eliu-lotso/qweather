@@ -6,10 +6,10 @@
     <description>台北新北天气、大雨城市与预警</description>
     <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>天气预报（2026-02-12 08:00）（未来 15 小时预报）</title>
-      <pubDate>Thu, 12 Feb 2026 00:00:55 GMT</pubDate>
-      <guid isPermaLink="false">weather-20260212T000055</guid>
-      <description><![CDATA[【台北市】今日天气：数据获取中<br><br>【新北市】今日天气：数据获取中<br><br>【桃园市】今日天气：数据获取中<br><br>🌤️ **台北市未来两日天气**：数据获取中<br><br>🌤️ **新北市未来两日天气**：数据获取中<br><br>🌤️ **桃园市未来两日天气**：数据获取中<br><br>✅ 当前无天气预警]]></description>
+      <title>天气预报（2026-02-13 07:35）（未来 15 小时预报）</title>
+      <pubDate>Thu, 12 Feb 2026 23:35:42 GMT</pubDate>
+      <guid isPermaLink="false">weather-20260212T233542</guid>
+      <description><![CDATA[【台北市】今日天气：晴時多雲，16 ~ 27℃<br><br>【新北市】今日天气：晴時多雲，15 ~ 26℃<br><br>【桃园市】今日天气：晴時多雲，14 ~ 25℃<br><br>🌤️ 台北市未来两日：晴时多云，温16~29℃，降雨机率低无需忧<br><br>🌤️ 新北市未来两日：晴时多云，温15~28℃，降雨概率低勿需忧<br><br>🌤️ 桃园市未来两日：晴时多云，14~26℃，降雨机率低勿需忧<br><br>⚠️ 当前预警摘要（02月12日 23:35）：<br>- 市级：臺中市发布濃霧特報，2026年2月13日07:06至09:00生效  <br>- 其他：2月13日01:06至11:00，綠島有局部大雨發生機率，中南部清晨至上午易有局部霧或低雲影響能見度，蘭嶼綠島有大雨特報]]></description>
     </item>
   </channel>
 </rss>
