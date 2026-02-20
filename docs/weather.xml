@@ -6,10 +6,10 @@
     <description>台北新北天气、大雨城市与预警</description>
     <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>天气预报（2026-02-20 07:35）（未来 15 小时预报）</title>
-      <pubDate>Thu, 19 Feb 2026 23:35:45 GMT</pubDate>
-      <guid isPermaLink="false">weather-20260219T233545</guid>
-      <description><![CDATA[【台北市】今日天气：晴時多雲，16 ~ 22℃<br><br>【新北市】今日天气：晴時多雲，15 ~ 21℃<br><br>【桃园市】今日天气：陰時多雲短暫雨，14 ~ 19℃<br><br>🌤️ 台北市未来两日：阴转晴，16~26℃，降雨机率分时段留意<br><br>🌤️ 新北市未来两日：阴转晴，15~25℃，降雨机率需留意<br><br>🌤️ 桃园市未来两日：阴短雨转多云，14~24℃，降雨情况需留意<br><br>✅ 当前无天气预警]]></description>
+      <title>天气预报（2026-02-21 07:34）（未来 15 小时预报）</title>
+      <pubDate>Fri, 20 Feb 2026 23:34:09 GMT</pubDate>
+      <guid isPermaLink="false">weather-20260220T233409</guid>
+      <description><![CDATA[【台北市】今日天气：晴時多雲，16 ~ 26℃<br><br>【新北市】今日天气：晴時多雲，15 ~ 25℃<br><br>【桃园市】今日天气：多雲時晴，14 ~ 24℃<br><br>🌤️ 台北市未来两日晴时多云，16~26℃，降雨机率较低勿需多虑<br><br>🌤️ 新北市未来两日：晴时多云，15~26℃，小概率降雨需留意<br><br>🌤️ 桃园市未来两日：多云为主，14~25℃，降雨机率较低留意<br><br>⚠️ 当前预警摘要（02月20日 23:34）：<br>- 市级：臺中市發布陸上強風特報，生效時間為2026-02-22 20:00至23:00  <br>- 其他：相關地區有官方陸上強風特報，蘭嶼、臺中市需注意強風，時間同市级陸上強風特報時段  <br>- 總體：2026年2月22日20:00至23:00，臺中市及相關地區發布陸上強風特報，需留意強風對戶外物品、交通等影響]]></description>
     </item>
   </channel>
 </rss>
