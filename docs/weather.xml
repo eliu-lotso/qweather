@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>天气快讯</title>
-    <link>https://eliu-lotso.github.io/qweather/weather.xml</link>
+    <link>https://eliu-lotso.github.io/tw-weather/weather.xml</link>
     <description>台北新北天气、大雨城市与预警</description>
-    <atom:link href="https://eliu-lotso.github.io/qweather/weather.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://eliu-lotso.github.io/tw-weather/weather.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>天气预报（2026-03-06 07:55）（未来 15 小时预报）</title>
-      <pubDate>Thu, 05 Mar 2026 23:55:10 GMT</pubDate>
-      <guid isPermaLink="false">weather-20260305T235510</guid>
-      <description><![CDATA[【台北市】今日天气：陰短暫雨，16 ~ 19℃<br><br>【新北市】今日天气：陰短暫雨，16 ~ 19℃<br><br>【桃园市】今日天气：陰短暫雨，15 ~ 18℃<br><br>🌤️ 台北市未来两日：阴短雨为主，16~19℃，50%降雨需留意<br><br>🌤️ 新北市未来两日：阴短暫雨转阴天，16~19℃，留意短时降雨<br><br>🌤️ 桃园市未来两日：阴短暫雨为主，15~18℃，80%降雨需留意<br><br>⚠️ 当前预警摘要（03月05日 23:55）：<br>- 市级：2026-03-06 04:30至03-07 23:00，新竹、基隆、新北、桃园、台中、台南有陸上強風特報；3月6日05:24至08:00桃园市有濃霧特報  <br>- 其他：東北風增強致多地需注意強風，大雨特報已解除；3月6日清晨台南以北地區有局部低雲或霧]]></description>
+      <title>天气预报（2026-03-06 09:13）（未来 15 小时预报）</title>
+      <pubDate>Fri, 06 Mar 2026 01:13:58 GMT</pubDate>
+      <guid isPermaLink="false">weather-20260306T011358</guid>
+      <description><![CDATA[【台北市】今日天气：陰天，16 ~ 19℃<br><br>【新北市】今日天气：陰短暫雨，16 ~ 19℃<br><br>【桃园市】今日天气：陰天，15 ~ 18℃<br><br>🌤️ 台北市未来两日：阴短雨转阴，16~19℃，雨天需防短时降雨<br><br>🌤️ 新北市未来两日：阴短暫雨16-19℃，后日转阴天降雨减<br><br>🌤️ 桃园市未来两日：阴短雨为主，15~18℃，明起降雨概率降<br><br>⚠️ 当前预警摘要（03月06日 01:13）：<br>- 市级：基隆市、臺中市、桃園市、新竹市、臺南市、新北市等多市发布陸上強風特報，生效时间为2026-03-06 04:30至2026-03-07 23:00  <br>- 其他：相關地區大雨特報解除，官方陸上強風特報指東北風增強，6日晨至7日晚涉及新北市、桃園市等，需注意強風影響]]></description>
     </item>
   </channel>
 </rss>
