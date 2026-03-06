@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 RSS_PATH = os.path.join("docs", "weather.xml")
-FEED_LINK = os.getenv("RSS_FEED_LINK", "https://eliu-lotso.github.io/qweather/weather.xml")  # GitHub Pages 地址
+FEED_LINK = os.getenv("RSS_FEED_LINK", "https://eliu-lotso.github.io/tw-weather/weather.xml")  # GitHub Pages 地址
 CHANNEL_LINK = FEED_LINK.rsplit("/", 1)[0] + "/"  # 用于 <link> 指向主页
 
 
